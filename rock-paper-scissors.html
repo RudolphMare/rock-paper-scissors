@@ -16,23 +16,55 @@
       return(computerChoice);
     }
 
+    function playerPlay() {
+      let playerChoice = prompt("Choose your weapon: Rock, Paper, or Scissors?");
+      return(playerChoice.toLowerCase());
+    }    
+
+    function capitalize(string) {
+      let firstLetter = string.slice(0, 1);
+      let stringLength = string.length;
+      let remainingLetters = string.slice(1, stringLength)
+      let lower = string.toLowerCase();
+      return(firstLetter.toUpperCase() + remainingLetters.toLowerCase());
+    }
+
     function playRound(playerSelection, computerSelection) {
       let player = playerSelection.toLowerCase();
       let computer = computerSelection.toLowerCase();
 
       if (player === computer) {
         return('It\'s a draw!');
-      } else if (player === 'rock' && computer === 'paper') {
-          return('You lose! Paper beats rock!');          
-      } else if (player === 'paper' && computer === 'scissors') {
-        return ('You lose! Scissors beats paper!');
-      } else if (player === 'scissors' && computer === 'rock') {
-        return ('You lose! Rock beats scissors!');
+      } else if (
+      (player === 'rock' && computer === 'paper') ||
+      (player === 'paper' && computer === 'scissors') ||
+      (player === 'scissors' && computer === 'rock')) {
+        return ('You lose! ' + computerSelection + ' beats ' + player + '.');
+      } /*else if (player !== ['rock', 'paper', 'scissors']) {
+          return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');
+      }*/ else {
+        return ('You win! ' + capitalize(player) + ' beats ' + computer + '.');
       }
-        return ('You win!');
+      //return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');      
     }
 
-    const playerSelection = 'paper';
+
+
+    /*let roundResult = playRound()
+
+    function scoreBoard(roundResult) {
+      
+    }*/
+
+    /*function game() {
+      let computerScore = 0;
+      let playerScore = 0;
+      let roundCount = 1;
+
+
+    }*/
+
+    const playerSelection = playerPlay();
     const computerSelection = computerPlay();
     console.log(playerSelection);
     console.log(computerSelection);

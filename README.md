@@ -7,3 +7,9 @@ Created and tested function computerPlay(). This function randomly returns Rock,
 
 4 July 2018 @20:38:
 Created function playRound(), which plays one round of the game.
+
+5 July 2018 @23:20:
+Modified function playRound() to be somewhat shorter.
+Added helper function capitalize().
+Added function playerPlay().
+Bug: Illegal input results in a win; exception handling not working.
