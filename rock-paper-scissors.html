@@ -43,7 +43,7 @@
       (player === 'paper' && computer === 'scissors') ||
       (player === 'scissors' && computer === 'rock')) {
         return ('You lose! ' + computerSelection + ' beats ' + player + '.');
-      } /*else if (player !== ['rock', 'paper', 'scissors']) {
+      } /*else if (player !== 'rock' || 'paper' || 'scissors') {
           return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');
       }*/ else {
         return ('You win! ' + capitalize(player) + ' beats ' + computer + '.');
@@ -51,28 +51,35 @@
       //return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');      
     }
 
-
-
-    /*let roundResult = playRound()
-
-    function scoreBoard(roundResult) {
-      
-    }*/
-
     function game() {
       let computerScore = 0;
       let playerScore = 0;
-            
+
       for (roundCount = 0; roundCount < 5; roundCount++) {
         console.log('Round: ' + (roundCount+1));
-        console.log('Choose your weapon!')
+        console.log('Choose your weapon!')        
        
-        let roundResult = playRound(playerPlay(), computerPlay());
-        
+        let roundResult = playRound(playerPlay(), computerPlay());        
         console.log(roundResult);
+
+        //scoreBoard(computerScore, playerScore, roundResult);
         
+        if (roundResult.indexOf('win') > 0) {
+          ++playerScore;
+        } else if (roundResult.indexOf('lose') > 0) {
+          ++computerScore;
+        }
+
+        console.log('Score: Player ' + playerScore + ' | ' + computerScore + ' Computer');
       }
 
+      if (playerScore > computerScore) {
+        console.log('**You are the winner!**');
+      } else if (computerScore > playerScore) {
+        console.log('**You lost to the computer!**');
+      } else {
+        console.log('**It\'s a tie!**');
+      }
 
     }
 

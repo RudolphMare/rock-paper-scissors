@@ -16,3 +16,6 @@ Bug: Illegal input results in a win; exception handling not working.
 
 6 July 2018 @16:18:
 Added function game(), which executes playRound() five times, and shows round number and weapons.
+
+6 July 2018 @19:58:
+Added score counter and final result to game(). It should be a separate function, but it wouldn't work properly.
