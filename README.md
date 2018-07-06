@@ -19,3 +19,6 @@ Added function game(), which executes playRound() five times, and shows round nu
 
 6 July 2018 @19:58:
 Added score counter and final result to game(). It should be a separate function, but it wouldn't work properly.
+
+6 July 2018 @21:52:
+Added exception handling to playerPlay(). The player is now alerted when they input anything other than (case-insensitive) Rock, Paper, or Scissors. The player forfeits if they press Cancel.

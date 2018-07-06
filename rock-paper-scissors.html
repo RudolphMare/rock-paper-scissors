@@ -17,8 +17,24 @@
     }
 
     function playerPlay() {
-      let playerChoice = prompt("Choose your weapon: Rock, Paper, or Scissors?");
-      return(playerChoice.toLowerCase());
+      let isLegalWeapon = false;
+      let playerChoice;
+
+      do {
+        playerChoice = prompt("Choose your weapon: Rock, Paper, or Scissors?");
+
+        if (playerChoice === null) {
+            alert ('You forfeit. Computer wins!');
+            break;
+        } else if (playerChoice.toLowerCase() === 'rock' || 
+        playerChoice.toLocaleLowerCase() === 'paper' || 
+        playerChoice.toLocaleLowerCase() === 'scissors') {
+          isLegalWeapon = true;          
+        } else {
+            alert('Illegal weapon! You must choose Rock, Paper, or Scissors!');
+        }
+      } while (isLegalWeapon === false);
+      return(playerChoice);
     }    
 
     function capitalize(string) {
@@ -43,12 +59,9 @@
       (player === 'paper' && computer === 'scissors') ||
       (player === 'scissors' && computer === 'rock')) {
         return ('You lose! ' + computerSelection + ' beats ' + player + '.');
-      } /*else if (player !== 'rock' || 'paper' || 'scissors') {
-          return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');
-      }*/ else {
+      } else {
         return ('You win! ' + capitalize(player) + ' beats ' + computer + '.');
-      }
-      //return ('Illegal weapon! You must choose Rock, Paper, or Scissors!');      
+      }      
     }
 
     function game() {
@@ -61,8 +74,6 @@
        
         let roundResult = playRound(playerPlay(), computerPlay());        
         console.log(roundResult);
-
-        //scoreBoard(computerScore, playerScore, roundResult);
         
         if (roundResult.indexOf('win') > 0) {
           ++playerScore;
@@ -83,14 +94,7 @@
 
     }
 
-    /*const playerSelection = playerPlay();
-    const computerSelection = computerPlay();
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(playRound(playerSelection, computerSelection));*/
-    //console.log(game())
-    game();
-    
+    game();    
 
   </script>
 
